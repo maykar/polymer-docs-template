@@ -5374,7 +5374,7 @@ Mr({_template:Wr`
         paper-item {
           cursor: pointer;
         }
-      `]}};e([oe()],Kl.prototype,"category",void 0),e([oe()],Kl.prototype,"page",void 0),Kl=e([ne("docs-dot-menu")],Kl);let ql=class extends de{constructor(){super(...arguments),this.expanded=!1}firstUpdated(e){const t=window.location.hash;t.includes("#")&&(this.page=t.split("/")[1],this.category=t.replace("#","").split("/")[0]),super.firstUpdated(e),(()=>fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(e=>e.json()))().then(e=>{this.docs=e})}updated(){const e=Array.from(document.querySelector("docs-main").shadowRoot.querySelectorAll("paper-tab"));if(!(e.length<2)){for(const t of e)if(t.classList.contains("iron-selected"))return;e[1].click(),e[0].click(),window.dispatchEvent(new Event("resize"))}}changePage(e){this.page=e.detail.selected.toLowerCase(),window.history.pushState(null,"",`./#${this.category}/${this.page}`)}changeCategory(e){"paper-item"!==e.composedPath()[0].localName&&(this.category=e.composedPath()[3].innerText.toLowerCase(),this.page=this.docs[this.category][0].title,window.history.pushState(null,"",`./#${this.category}`))}toggleSidebar(){this.expanded=!this.expanded}render(){return void 0===this.docs?P``:(void 0===this.category&&(this.category=Go,window.history.pushState(null,"",`./#${this.category}`)),void 0===this.page&&(this.page=this.docs[this.category][0].title,window.history.pushState(null,"",`./#${this.category}/${this.page}`)),P`
+      `]}};e([oe()],Kl.prototype,"category",void 0),e([oe()],Kl.prototype,"page",void 0),Kl=e([ne("docs-dot-menu")],Kl);let ql=class extends de{constructor(){super(...arguments),this.expanded=!1,this.search=!1}firstUpdated(e){const t=window.location.hash;t.includes("#")&&(this.page=t.split("/")[1],this.category=t.replace("#","").split("/")[0]),super.firstUpdated(e),(()=>fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(e=>e.json()))().then(e=>{this.docs=e})}updated(){const e=Array.from(document.querySelector("docs-main").shadowRoot.querySelectorAll("paper-tab"));if(!(e.length<2)){for(const t of e)if(t.classList.contains("iron-selected"))return;e[1].click(),e[0].click(),window.dispatchEvent(new Event("resize"))}}changePage(e){this.page=e.detail.selected.toLowerCase(),window.history.pushState(null,"",`./#${this.category}/${this.page}`)}changeCategory(e){"paper-item"!==e.composedPath()[0].localName&&(this.category=e.composedPath()[3].innerText.toLowerCase(),this.page=this.docs[this.category][0].title,window.history.pushState(null,"",`./#${this.category}`))}toggleSidebar(){this.expanded=!this.expanded}toggleSearch(){this.search=!this.search}render(){return void 0===this.docs?P``:(void 0===this.category&&(this.category=Go,window.history.pushState(null,"",`./#${this.category}`)),void 0===this.page&&(this.page=this.docs[this.category][0].title,window.history.pushState(null,"",`./#${this.category}/${this.page}`)),P`
     <app-header-layout has-scrolling-region fullbleed>
         <div class="sidebar ${this.expanded?"expanded":""}">
           <div class="menu" @click=${this.toggleSidebar}>
@@ -5430,7 +5430,12 @@ Mr({_template:Wr`
         <app-header class="${this.expanded?"sidebarExpanded":""}" fixed slot="header">
           <app-toolbar>
             <div main-title class="main-title">${Qo}</div>
-            <iron-icon class="iconify" icon="av:mic"></iron-icon>
+            <div class="search ${this.search?"":"searchClosed"}">
+              <form class="search-form">
+                <input type="text" class="searchbox ${this.search?"":"searchClosed"}">
+              </form>
+            </div>
+            <iron-icon @click=${this.toggleSearch} class="iconify" icon="icons:search"></iron-icon>
             <docs-dot-menu .category=${this.category} .page=${this.page}></docs-dot-menu>
           </app-toolbar>
           <paper-tabs
@@ -5452,4 +5457,4 @@ Mr({_template:Wr`
             `:void 0)}
   </docs-panel>
   </app-header-layout>
-        `)}static get styles(){return os}};e([oe()],ql.prototype,"docs",void 0),e([oe()],ql.prototype,"page",void 0),e([oe()],ql.prototype,"category",void 0),e([oe()],ql.prototype,"expanded",void 0),ql=e([ne("docs-main")],ql);export{ql as Main};
+        `)}static get styles(){return os}};e([oe()],ql.prototype,"docs",void 0),e([oe()],ql.prototype,"page",void 0),e([oe()],ql.prototype,"category",void 0),e([oe()],ql.prototype,"expanded",void 0),e([oe()],ql.prototype,"search",void 0),ql=e([ne("docs-main")],ql);export{ql as Main};
