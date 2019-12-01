@@ -5414,14 +5414,14 @@ Mr({_template:Wr`
                     scrollable
                   >
           ${this.docs[this.category].length>1?P`
-                  ${this.docs[this.category].map(e=>P`
-                      <paper-tab page-name="${e.title.toLowerCase()}">${e.title}</paper-tab>
-                    `)}
+                  ${this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1).map(e=>P`
+                        <paper-tab tabindex=${e.index} page-name="${e.id}">${e.title}</paper-tab>
+                      `)}
                 `:""}
           </paper-tabs>
         </app-header>
 
-        ${this.docs[this.category].map(e=>e.title===this.page?P`
+        ${this.docs[this.category].map(e=>e.id===this.page?P`
               <docs-card class="view ${this.expanded?"sidebarExpanded":""}" .content=${e}> </docs-card>
             `:void 0)}
   </docs-panel>
