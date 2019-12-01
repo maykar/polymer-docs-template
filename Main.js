@@ -4460,7 +4460,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
       <div class="markdown-body">
         ${hl(sa(fl(e,t)))}
       </div>
-    `}static settings(e){var t={};return e.includes("---\n")&&3===e.split("---\n").length&&(t=al.parse(e.split("---\n")[1])),t}}.html(this.content.content);return P`
+    `}static settings(e){var t={};return e.includes("---\n")&&3===e.split("---\n").length&&(t=al.parse(e.split("---\n")[1])),t}}.html(this.content.content_html);return P`
       <paper-card>
         <div class="card-content">
           ${e}
