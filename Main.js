@@ -2833,7 +2833,7 @@ Mr({_template:Wr`
       }
     </style>
     <slot></slot>
-`,is:"paper-item",behaviors:[[No,bo,{hostAttributes:{role:"option",tabindex:"0"}}]]});var Qo="Documentation Demo Site",Go="installation",Xo="https://github.com/maykar/polymer-docs-template",es=[{category:"installation",icon:"icons:arrow-downward"},{category:"configuration",icon:"icons:create"}],ts=[{link:"https://github.com/maykar/polymer-docs-template",caption:"GitHub"},{link:"https://github.com/maykar/polymer-docs-template/issues",caption:"Issues"}],ns=[{category:"developer-tools",icon:"icons:build"},{category:"faq",icon:"icons:help"}];const is=ce`
+`,is:"paper-item",behaviors:[[No,bo,{hostAttributes:{role:"option",tabindex:"0"}}]]});var Qo="Documentation Demo Site",Go="intro",Xo="https://github.com/maykar/polymer-docs-template",es=[{category:"intro",icon:"icons:home"},{category:"installation",icon:"icons:arrow-downward"},{category:"configuration",icon:"icons:create"}],ts=[{category:"faq",icon:"icons:help"}],ns=[{link:"https://github.com/maykar/polymer-docs-template",caption:"GitHub"},{link:"https://github.com/maykar/polymer-docs-template/issues",caption:"Issues"}];const is=ce`
   app-header {
     position: fixed !important;
     top: 0;
@@ -5442,7 +5442,7 @@ Mr({_template:Wr`
           </div>
 
           <div class="sidebarBottomItems">
-            ${ns.map(e=>P`
+            ${ts.map(e=>P`
                 <paper-item
                   @click=${this.changeCategory}
                   title=${e.category}
@@ -5456,7 +5456,7 @@ Mr({_template:Wr`
                 </paper-item>
               `)}
             <div class="divider"></div>
-            ${ts.map(e=>P`
+            ${ns.map(e=>P`
                 <a class="sidebarLinkItems" href="${e.link}" target="_blank">
                   <paper-item title=${e.caption}>
                     <iron-icon class="iconify" icon="icons:open-in-new"></iron-icon>
