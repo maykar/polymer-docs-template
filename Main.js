@@ -3019,6 +3019,7 @@ Mr({_template:Wr`
   .view {
     transition: all 0.4s ease-in-out;
   }
+
   .view {
     display: flex;
     margin-left: 55px;
@@ -3027,8 +3028,8 @@ Mr({_template:Wr`
     height: calc(100vh - 96px);
   }
 
-  docs-card {
-    width: calc(100% - 254);
+  .content {
+    width: 90%;
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: 24px;
@@ -3036,6 +3037,7 @@ Mr({_template:Wr`
 
   .search {
     width: 25%;
+    max-width: 250px;
     background: white;
     z-index: 2;
     border-radius: 20px;
@@ -4497,6 +4499,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         position: relative;
         width: 100%;
         height: fit-content;
+        border-radius: 3px;
       }
     `}};e([oe()],gl.prototype,"content",void 0),gl=e([ne("docs-card")],gl);
 /**
@@ -5451,10 +5454,12 @@ Mr({_template:Wr`
                 `:""}
           </paper-tabs>
         </app-header>
-
-        ${this.docs[this.category].map(e=>e.id===this.page?P`
-              <docs-card class="view ${this.expanded?"sidebarExpanded":""}" .content=${e}> </docs-card>
-            `:void 0)}
-  </docs-panel>
+        <div class="view ${this.expanded?"sidebarExpanded":""}">
+          <div class="content">
+            ${this.docs[this.category].map(e=>e.id===this.page?P`
+                    <docs-card .content=${e}> </docs-card>
+                  `:void 0)}
+          </div>
+        </div>
   </app-header-layout>
         `)}static get styles(){return os}};e([oe()],ql.prototype,"docs",void 0),e([oe()],ql.prototype,"page",void 0),e([oe()],ql.prototype,"category",void 0),e([oe()],ql.prototype,"expanded",void 0),e([oe()],ql.prototype,"search",void 0),ql=e([ne("docs-main")],ql);export{ql as Main};
