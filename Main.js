@@ -5359,7 +5359,7 @@ Mr({_template:Wr`
           </paper-item>
         </paper-listbox>
       </paper-menu-button>
-    `}editOnGithub(){window.open(`${Xo}/edit/master/src/docs/${this.category}/${this.page}.md`,"_blank")}static get styles(){return[ce`
+    `}editOnGithub(){window.open(`${Xo}/edit/master/docs/${this.category}/${this.page}.md`,"_blank")}static get styles(){return[ce`
         paper-menu-button {
           float: right;
         }
