@@ -2994,7 +2994,8 @@ Mr({_template:Wr`
   }
 `,os=[ce`
   .sidebarBottomItems {
-    bottom: 0px;
+    bottom: 16px;
+    margin-bottom: 24px;
     width: 100%;
     position: absolute;
   }
@@ -3037,6 +3038,17 @@ Mr({_template:Wr`
 
   docs-search {
     display: contents;
+  }
+  .footer {
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
+    margin-left: 16px;
+  }
+  .footer a,
+  i {
+    color: var(--secondary-text-color);
+    text-decoration: none;
   }
 `,is,rs];
 /**
@@ -5464,6 +5476,12 @@ Mr({_template:Wr`
                   </paper-item>
                 </a>
               `)}
+          </div>
+          <div class="footer">
+            <i
+              >Made with
+              <a href="https://maykar.github.io/polymer-docs-template" target="_blank">polymer-docs-template</a></i
+            >
           </div>
         </div>
 
