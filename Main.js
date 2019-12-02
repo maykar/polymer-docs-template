@@ -5354,7 +5354,7 @@ Mr({_template:Wr`
         paper-item {
           cursor: pointer;
         }
-      `]}};e([oe()],ql.prototype,"category",void 0),e([oe()],ql.prototype,"page",void 0),ql=e([ne("docs-dot-menu")],ql);let Wl=class extends de{constructor(){super(...arguments),this.search=!1,this.searchterm=void 0}render(){return P`
+      `]}};e([oe()],ql.prototype,"category",void 0),e([oe()],ql.prototype,"page",void 0),ql=e([ne("docs-dot-menu")],ql);let Wl=class extends de{constructor(){super(...arguments),this.search=!1,this.searchterm=""}render(){return P`
       ${this.search?P`
             <div class="search">
               <input @input=${this.Search} type="text" class="searchbox" autofocus />
@@ -5362,15 +5362,15 @@ Mr({_template:Wr`
           `:""}
 
       <iron-icon @click=${this.toggleSearch} class="iconify" icon="icons:search"></iron-icon>
-      ${void 0!==this.searchterm?P`
-            <div class="result-container">
+      ${this.searchterm.length>0?P`
+            <paper-card class="result-container">
               <div class="result">
                 <p>${gl.html("### Search results:")}</p>
                 ${Object.entries(this.docs).map(e=>e[1].map(e=>e.content_html.toLowerCase().includes(this.searchterm.toLowerCase())?P`
                         <a class="result-item" href="${e.url}" @click=${this.searchClick}>${e.title}</a></br>
                       `:void 0))}
               </div>
-            </div>
+            </paper-card>
           `:""}
     `}toggleSearch(){this.search=!this.search}searchClick(e){window.open(e.composedPath()[0].href,"_self"),window.location.reload()}Search(e){this.searchterm=e.composedPath()[0].value}static get styles(){return[os,ce`
         .result-item {
@@ -5380,11 +5380,11 @@ Mr({_template:Wr`
         }
         .result-container {
           position: absolute;
-          right: 16px;
+          right: 32px;
           top: 42px;
           max-width: 320px;
           width: 90%;
-          background: var(--paper-listbox-background-color);
+          background: var(--primary-background-color);
           color: var(--primary-text-color);
           z-index: 1337;
           border-radius: 20px;
