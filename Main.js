@@ -5377,8 +5377,8 @@ Mr({_template:Wr`
         paper-item {
           cursor: pointer;
         }
-      `]}};e([oe()],Kl.prototype,"category",void 0),e([oe()],Kl.prototype,"page",void 0),Kl=e([ne("docs-dot-menu")],Kl);let ql=class extends de{constructor(){super(...arguments),this.expanded=!1,this.search=!1}firstUpdated(e){const t=window.location.hash;t.includes("#")&&(this.page=t.split("/")[1],this.category=t.replace("#","").split("/")[0]),super.firstUpdated(e),(()=>fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(e=>e.json()))().then(e=>{this.docs=e})}updated(){const e=Array.from(document.querySelector("docs-main").shadowRoot.querySelectorAll("paper-tab"));if(!(e.length<2)){for(const t of e)if(t.classList.contains("iron-selected"))return;e[1].click(),e[0].click(),window.dispatchEvent(new Event("resize"))}}changePage(e){this.page=e.detail.selected.toLowerCase(),window.history.pushState(null,"",`./#${this.category}/${this.page}`)}changeCategory(e){"paper-item"!==e.composedPath()[0].localName&&(this.category=e.composedPath()[3].innerText.toLowerCase(),this.page=this.docs[this.category][0].title,window.history.pushState(null,"",`./#${this.category}`))}toggleSidebar(){this.expanded=!this.expanded}toggleSearch(){this.search=!this.search}render(){return void 0===this.docs?P``:(void 0===this.category&&(this.category=Go,window.history.pushState(null,"",`./#${this.category}`)),void 0===this.page&&(this.page=this.docs[this.category][0].title,window.history.pushState(null,"",`./#${this.category}/${this.page}`)),P`
-    <app-header-layout has-scrolling-region fullbleed>
+      `]}};e([oe()],Kl.prototype,"category",void 0),e([oe()],Kl.prototype,"page",void 0),Kl=e([ne("docs-dot-menu")],Kl);let ql=class extends de{constructor(){super(...arguments),this.expanded=!1,this.search=!1}firstUpdated(e){const t=window.location.hash;t.includes("#")&&(this.page=t.split("/")[1],this.category=t.replace("#","").split("/")[0]),super.firstUpdated(e),(()=>fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(e=>e.json()))().then(e=>{this.docs=e})}updated(){const e=Array.from(document.querySelector("docs-main").shadowRoot.querySelectorAll("paper-tab"));if(!(e.length<2)){for(const t of e)if(t.classList.contains("iron-selected"))return;e[1].click(),e[0].click(),window.dispatchEvent(new Event("resize"))}}changePage(e){this.page=e.detail.selected.toLowerCase(),window.history.pushState(null,"",`./#${this.category}/${this.page}`)}changeCategory(e){"paper-item"!==e.composedPath()[0].localName&&(this.category=e.composedPath()[3].innerText.toLowerCase(),this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}`))}toggleSidebar(){this.expanded=!this.expanded}toggleSearch(){this.search=!this.search}render(){return void 0===this.docs?P``:(void 0===this.category&&(this.category=Go,window.history.pushState(null,"",`./#${this.category}`)),void 0===this.page&&(this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}/${this.page}`)),P`
+      <app-header-layout has-scrolling-region fullbleed>
         <div class="sidebar ${this.expanded?"expanded":""}">
           <div class="menu" @click=${this.toggleSidebar}>
             <paper-item>
@@ -5400,24 +5400,23 @@ Mr({_template:Wr`
                   <span class="item-text">${e.category}</span>
                 </paper-item>
               `)}
-
           </div>
 
           <div class="sidebarBottomItems">
-          ${ns.map(e=>P`
-              <paper-item
-                @click=${this.changeCategory}
-                title=${e.category}
-                class="${this.category===e.category?"selected":""}"
-              >
-                <iron-icon
-                  class="iconify ${this.category===e.category?"selected":""}"
-                  icon=${e.icon}
-                ></iron-icon>
-                <span class="item-text">${e.category}</span>
-              </paper-item>
-            `)}
-          <div class="divider"></div>
+            ${ns.map(e=>P`
+                <paper-item
+                  @click=${this.changeCategory}
+                  title=${e.category}
+                  class="${this.category===e.category?"selected":""}"
+                >
+                  <iron-icon
+                    class="iconify ${this.category===e.category?"selected":""}"
+                    icon=${e.icon}
+                  ></iron-icon>
+                  <span class="item-text">${e.category}</span>
+                </paper-item>
+              `)}
+            <div class="divider"></div>
             ${ts.map(e=>P`
                 <a class="sidebarLinkItems" href="${e.link}" target="_blank">
                   <paper-item title=${e.caption}>
@@ -5429,27 +5428,21 @@ Mr({_template:Wr`
           </div>
         </div>
 
-
         <app-header class="${this.expanded?"sidebarExpanded":""}" fixed slot="header">
           <app-toolbar>
             <div main-title class="main-title">${Qo}</div>
             <div class="search ${this.search?"":"searchClosed"}">
               <form class="search-form">
-                <input type="text" class="searchbox ${this.search?"":"searchClosed"}">
+                <input type="text" class="searchbox ${this.search?"":"searchClosed"}" />
               </form>
             </div>
             <iron-icon @click=${this.toggleSearch} class="iconify" icon="icons:search"></iron-icon>
             <docs-dot-menu .category=${this.category} .page=${this.page}></docs-dot-menu>
           </app-toolbar>
-          <paper-tabs
-                    .selected=${this.page}
-                    @iron-activate=${this.changePage}
-                    attr-for-selected="page-name"
-                    scrollable
-                  >
-          ${this.docs[this.category].length>1?P`
+          <paper-tabs .selected=${this.page} @iron-activate=${this.changePage} attr-for-selected="page-name" scrollable>
+            ${this.docs[this.category].length>1?P`
                   ${this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1).map(e=>P`
-                        <paper-tab tabindex=${e.index} page-name="${e.id}">${e.title}</paper-tab>
+                        <paper-tab page-name="${e.id}">${e.title}</paper-tab>
                       `)}
                 `:""}
           </paper-tabs>
@@ -5457,9 +5450,9 @@ Mr({_template:Wr`
         <div class="view ${this.expanded?"sidebarExpanded":""}">
           <div class="content">
             ${this.docs[this.category].map(e=>e.id===this.page?P`
-                    <docs-card .content=${e}> </docs-card>
-                  `:void 0)}
+                  <docs-card .content=${e}> </docs-card>
+                `:void 0)}
           </div>
         </div>
-  </app-header-layout>
-        `)}static get styles(){return os}};e([oe()],ql.prototype,"docs",void 0),e([oe()],ql.prototype,"page",void 0),e([oe()],ql.prototype,"category",void 0),e([oe()],ql.prototype,"expanded",void 0),e([oe()],ql.prototype,"search",void 0),ql=e([ne("docs-main")],ql);export{ql as Main};
+      </app-header-layout>
+    `)}static get styles(){return os}};e([oe()],ql.prototype,"docs",void 0),e([oe()],ql.prototype,"page",void 0),e([oe()],ql.prototype,"category",void 0),e([oe()],ql.prototype,"expanded",void 0),e([oe()],ql.prototype,"search",void 0),ql=e([ne("docs-main")],ql);export{ql as Main};
