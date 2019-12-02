@@ -2992,6 +2992,20 @@ Mr({_template:Wr`
     margin: 0;
     margin-left: -4px;
   }
+  .footer {
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
+    margin-left: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .footer a,
+  i {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+  }
 `,os=[ce`
   .sidebarBottomItems {
     bottom: 16px;
@@ -3038,17 +3052,6 @@ Mr({_template:Wr`
 
   docs-search {
     display: contents;
-  }
-  .footer {
-    position: absolute;
-    bottom: 12px;
-    width: 100%;
-    margin-left: 16px;
-  }
-  .footer a,
-  i {
-    color: var(--secondary-text-color);
-    text-decoration: none;
   }
 `,is,rs];
 /**
