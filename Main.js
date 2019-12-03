@@ -5400,7 +5400,7 @@ Mr({_template:Wr`
               </div>
             </paper-card>
           `:""}
-    `}firstUpdated(){const e=e=>{if(this.search){for(const t of e.path){if("DOCS-SEARCH"===t.nodeName)return;t.nodeName}this.search=!1}};document.addEventListener("click",function(t){e(t)}.bind(this))}updated(){this.search||(this.searchterm="")}toggleSearch(){this.search=!this.search}searchClick(e){window.open(e.composedPath()[0].href,"_self"),window.location.reload()}Search(e){this.searchterm=e.composedPath()[0].value}static get styles(){return[os,ce`
+    `}firstUpdated(){const e=e=>{if(this.search){for(const t of e.path){if("DOCS-SEARCH"===t.nodeName)return;if("APP-TOOLBAR"===t.nodeName)break}this.search=!1}};document.addEventListener("click",function(t){e(t)}.bind(this))}updated(){this.search||(this.searchterm=""),this.search&&document.querySelector("docs-main").shadowRoot.querySelector("docs-search").shadowRoot.querySelector("input").focus()}toggleSearch(){this.search=!this.search}searchClick(e){window.open(e.composedPath()[0].href,"_self"),window.location.reload()}Search(e){this.searchterm=e.composedPath()[0].value}static get styles(){return[os,ce`
         .result-item {
           cursor: pointer;
           text-decoration: none;
