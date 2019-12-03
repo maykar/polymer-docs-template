@@ -3008,6 +3008,8 @@ Mr({_template:Wr`
     bottom: 0;
     padding: 5px 0 5px 0;
     background: var(--primary-background-color);
+    transition: all 0.4s ease-in-out;
+    opacity: 1;
   }
   .footer a,
   i {
@@ -5509,13 +5511,9 @@ Mr({_template:Wr`
                 </a>
               `)}
           </div>
-          ${this.expanded?P`
-                <div class="footer">
-                  <a href="https://maykar.github.io/polymer-docs-template" target="_blank"
-                    >Made with polymer-docs-template</a
-                  >
-                </div>
-              `:""}
+          <div class="footer" style=${this.expanded?"":"opacity: 0;"}>
+            <a href="https://maykar.github.io/polymer-docs-template" target="_blank">Made with polymer-docs-template</a>
+          </div>
         </div>
 
         <app-header class="${this.expanded?"sidebarExpanded":""}" fixed slot="header">
@@ -5525,7 +5523,7 @@ Mr({_template:Wr`
             <docs-dot-menu .category=${this.category} .page=${this.page}></docs-dot-menu>
           </app-toolbar>
           <paper-tabs
-            style=${this.tabs?"":"height: 0;"}
+            style=${this.tabs?"":"display: none;"}
             .selected=${this.page}
             @iron-activate=${this.changePage}
             attr-for-selected="page-name"
