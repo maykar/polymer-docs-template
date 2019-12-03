@@ -2885,19 +2885,16 @@ Mr({_template:Wr`
     position: absolute;
   }
 
-  .sidebarLinkItems {
-  }
-
   .menu {
     height: 48px;
     display: flex;
     white-space: nowrap;
     font-weight: 400;
-    color: #212121;
-    background-color: #fafafa;
+    color: var(--primary-text-color);
+    background-color: var(--primary-background-color);
     font-size: 20px;
     align-items: center;
-    border-bottom: 1px solid var(--light-theme-divider-color);
+    border-bottom: 1px solid var(--divider-color);
   }
 
   .sidebarLinkItems {
@@ -2995,6 +2992,7 @@ Mr({_template:Wr`
     margin: 0;
     margin-left: -4px;
   }
+
   .footer {
     position: absolute;
     bottom: 12px;
@@ -3008,6 +3006,7 @@ Mr({_template:Wr`
     padding: 5px 0 5px 0;
     background: var(--primary-background-color);
   }
+
   .footer a,
   i {
     color: var(--secondary-text-color);
@@ -3022,18 +3021,6 @@ Mr({_template:Wr`
     margin-bottom: 24px;
     width: 100%;
     position: absolute;
-  }
-
-  .menu {
-    height: 48px;
-    display: flex;
-    white-space: nowrap;
-    font-weight: 400;
-    color: var(--primary-text-color);
-    background-color: var(--primary-background-color);
-    font-size: 20px;
-    align-items: center;
-    border-bottom: 1px solid var(--divider-color);
   }
 
   .expanded {
@@ -4506,6 +4493,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         width: 100%;
         height: fit-content;
         border-radius: 3px;
+        background: #ffffff;
       }
     `}};e([oe()],ml.prototype,"content",void 0),ml=e([ne("docs-card")],ml);
 /**
@@ -5406,6 +5394,7 @@ Mr({_template:Wr`
           text-decoration: none;
           color: var(--primary-color);
         }
+
         .result-container {
           position: absolute;
           top: 43px;
@@ -5434,7 +5423,6 @@ Mr({_template:Wr`
           height: 25px;
           opacity: 1;
           overflow: hidden;
-          transition: all 0.4s ease-in-out;
         }
 
         .collapse {
@@ -5451,14 +5439,14 @@ Mr({_template:Wr`
           border-width: 0;
           outline: none;
           opacity: 1;
-          transition-delay: 0.4s;
         }
 
         .iconify {
           min-width: 24px;
         }
 
-        paper-card {
+        paper-card,
+        .search {
           transition: all 0.4s ease-in-out;
         }
       `]}};e([oe()],Wl.prototype,"docs",void 0),e([oe()],Wl.prototype,"search",void 0),e([oe()],Wl.prototype,"searchterm",void 0),Wl=e([ne("docs-search")],Wl);let Jl=class extends de{constructor(){super(...arguments),this.expanded=!1,this.tabs=!1}firstUpdated(e){const t=window.location.hash;window.innerWidth>800&&(this.expanded=!0),t.includes("#")&&(this.page=t.split("/")[1],this.category=t.replace("#","").split("/")[0]),super.firstUpdated(e),(()=>fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(e=>e.json()))().then(e=>{this.docs=e,this.tabs=this.docs[this.category].length>1})}updated(){const e=Array.from(document.querySelector("docs-main").shadowRoot.querySelectorAll("paper-tab"));if(!(e.length<2)){for(const t of e)if(t.classList.contains("iron-selected"))return;e[1].click(),e[0].click(),window.dispatchEvent(new Event("resize"))}}changePage(e){this.page=e.detail.selected.toLowerCase(),window.history.pushState(null,"",`./#${this.category}/${this.page}`)}changeCategory(e){"paper-item"!==e.composedPath()[0].localName&&(this.category=e.composedPath()[3].innerText.toLowerCase(),this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}`),this.tabs=this.docs[this.category].length>1,window.dispatchEvent(new Event("resize")))}toggleSidebar(){this.expanded=!this.expanded}render(){return void 0===this.docs?P``:(void 0===this.category&&(this.category=Go,window.history.pushState(null,"",`./#${this.category}`)),void 0===this.page&&(this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}/${this.page}`)),P`
