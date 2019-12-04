@@ -3021,6 +3021,7 @@ Mr({_template:Wr`
     margin-bottom: 24px;
     width: 100%;
     position: absolute;
+    background: var(--paper-listbox-background-color);
   }
 
   .expanded {
@@ -5449,7 +5450,7 @@ Mr({_template:Wr`
         .search {
           transition: all 0.4s ease-in-out;
         }
-      `]}};e([oe()],Wl.prototype,"docs",void 0),e([oe()],Wl.prototype,"search",void 0),e([oe()],Wl.prototype,"searchterm",void 0),Wl=e([ne("docs-search")],Wl);let Jl=class extends de{constructor(){super(...arguments),this.expanded=!1,this.tabs=!1}firstUpdated(e){const t=window.location.hash;window.innerWidth>800&&(this.expanded=!0),t.includes("#")&&(this.page=t.split("/")[1],this.category=t.replace("#","").split("/")[0]),super.firstUpdated(e),(()=>fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(e=>e.json()))().then(e=>{this.docs=e,this.tabs=this.docs[this.category].length>1})}updated(){const e=Array.from(document.querySelector("docs-main").shadowRoot.querySelectorAll("paper-tab"));if(!(e.length<2)){for(const t of e)if(t.classList.contains("iron-selected"))return;e[1].click(),e[0].click(),window.dispatchEvent(new Event("resize"))}}changePage(e){this.page=e.detail.selected.toLowerCase(),window.history.pushState(null,"",`./#${this.category}/${this.page}`)}changeCategory(e){"paper-item"!==e.composedPath()[0].localName&&(this.category=e.composedPath()[3].innerText.toLowerCase(),this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}`),this.tabs=this.docs[this.category].length>1,window.dispatchEvent(new Event("resize")))}toggleSidebar(){this.expanded=!this.expanded}render(){return void 0===this.docs?P``:(void 0===this.category&&(this.category=Go,window.history.pushState(null,"",`./#${this.category}`)),void 0===this.page&&(this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}/${this.page}`)),P`
+      `]}};e([oe()],Wl.prototype,"docs",void 0),e([oe()],Wl.prototype,"search",void 0),e([oe()],Wl.prototype,"searchterm",void 0),Wl=e([ne("docs-search")],Wl);let Jl=class extends de{constructor(){super(...arguments),this.expanded=!1,this.tabs=!1}firstUpdated(e){const t=window.location.hash;window.innerWidth>800&&(this.expanded=!0),t.includes("#")&&(this.page=t.split("/")[1],this.category=t.replace("#","").split("/")[0]),super.firstUpdated(e),(()=>fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(e=>e.json()))().then(e=>{this.docs=e})}updated(){const e=Array.from(document.querySelector("docs-main").shadowRoot.querySelectorAll("paper-tab"));if(!(e.length<2)){for(const t of e)if(t.classList.contains("iron-selected"))return;e[1].click(),e[0].click(),window.dispatchEvent(new Event("resize")),this.tabs=this.docs[this.category].length>1}}changePage(e){this.page=e.detail.selected.toLowerCase(),window.history.pushState(null,"",`./#${this.category}/${this.page}`)}changeCategory(e){"paper-item"!==e.composedPath()[0].localName&&(this.category=e.composedPath()[3].innerText.toLowerCase(),this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}`),this.tabs=this.docs[this.category].length>1,window.dispatchEvent(new Event("resize")))}toggleSidebar(){this.expanded=!this.expanded}render(){return void 0===this.docs?P``:(void 0===this.category&&(this.category=Go,window.history.pushState(null,"",`./#${this.category}`)),void 0===this.page&&(this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}/${this.page}`)),P`
       <app-header-layout has-scrolling-region fullbleed>
         <div class="sidebar ${this.expanded?"expanded":""}">
           <div class="menu" @click=${this.toggleSidebar}>
@@ -5503,7 +5504,7 @@ Mr({_template:Wr`
               href="https://maykar.github.io/polymer-docs-template"
               target="_blank"
               style=${this.expanded?"":"opacity: 0;"}
-              >Made with polymer-docs-template</a
+              >Made with polymer-docs-template.</a
             >
           </div>
         </div>
