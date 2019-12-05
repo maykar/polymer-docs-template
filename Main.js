@@ -2841,8 +2841,6 @@ Mr({_template:Wr`
     display: block;
     transition-timing-function: linear;
     z-index: 1;
-    width: -webkit-fill-available;
-    width: -moz-available;
     width: stretch;
   }
 
@@ -2869,7 +2867,7 @@ Mr({_template:Wr`
   }
 
   app-header {
-    transition: margin-top 0s !important;
+    transition: margin-top 0 !important;
     transition: margin-left 0.4s ease-in-out !important;
   }
 
@@ -2897,7 +2895,7 @@ Mr({_template:Wr`
   }
 
   .sidebarBottomItems {
-    bottom: 0px;
+    bottom: 0;
     padding-bottom: 8px;
     width: 100%;
     position: absolute;
@@ -2948,7 +2946,7 @@ Mr({_template:Wr`
   .selected {
     color: var(--sidebar-selected-text-color, var(--primary-color));
     background: transparent !important;
-    font-weight: bold;
+    font-weight: 700;
   }
 
   iron-icon.selected {
@@ -2965,7 +2963,7 @@ Mr({_template:Wr`
   }
 
   .divider {
-    padding: 8px 0px;
+    padding: 8px 0;
   }
 
   .divider::before {
@@ -3021,7 +3019,7 @@ Mr({_template:Wr`
     border-top: 1px solid var(--divider-color);
     width: 100%;
     bottom: 0;
-    padding: 5px 0 5px 0;
+    padding: 5px 0;
     background: var(--primary-background-color);
   }
 
@@ -3056,11 +3054,11 @@ Mr({_template:Wr`
     margin-left: 55px;
     padding-top: 24px;
     background: var(--lovelace-background, var(--primary-background-color));
-    height: calc(100vh - 96px);
+    height: calc(100vh-96px);
   }
 
   .no-tabs {
-    height: calc(100vh - 48px);
+    height: calc(100vh-48px);
   }
 
   .content {
@@ -4512,7 +4510,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         width: 100%;
         height: fit-content;
         border-radius: 3px;
-        background: #ffffff;
+        background: #fff;
       }
     `}};e([oe()],ml.prototype,"content",void 0),ml=e([ne("docs-card")],ml);
 /**
@@ -5387,6 +5385,7 @@ Mr({_template:Wr`
         paper-menu-button {
           float: right;
         }
+
         paper-item {
           cursor: pointer;
         }
@@ -5407,7 +5406,7 @@ Mr({_template:Wr`
               </div>
             </paper-card>
           `:""}
-    `}firstUpdated(){document.addEventListener("click",(e=>{if(!this.search)return;const t=e.path||e.composedPath&&e.composedPath(),n=["APP-HEADER-LAYOUT","APP-TOOLBAR","DOCS-CARD","APP-HEADER"];for(const e of t){if("DOCS-SEARCH"===e.nodeName)return;if(n.indexOf(e.nodeName)>-1)break}this.search=!1}).bind(this))}updated(){this.search||(this.searchterm=""),this.search&&document.querySelector("docs-main").shadowRoot.querySelector("docs-search").shadowRoot.querySelector("input").focus()}toggleSearch(){this.search=!this.search}searchClick(e){window.open(e.composedPath()[0].href,"_self"),window.location.reload()}Search(e){this.searchterm=e.composedPath()[0].value}static get styles(){return[os,ce`
+    `}firstUpdated(){document.addEventListener("click",(e=>{if(!this.search)return;const t=e.path||e.composedPath&&e.composedPath(),n=["APP-HEADER-LAYOUT","APP-TOOLBAR","DOCS-CARD","APP-HEADER"];for(const e of t){if("DOCS-SEARCH"===e.nodeName)return;if(n.indexOf(e.nodeName)>-1)break}this.search=!1}).bind(this))}updated(){this.search?document.querySelector("docs-main").shadowRoot.querySelector("docs-search").shadowRoot.querySelector("input").focus():this.searchterm=""}toggleSearch(){this.search=!this.search}searchClick(e){window.open(e.composedPath()[0].href,"_self"),window.location.reload()}Search(e){this.searchterm=e.composedPath()[0].value}static get styles(){return[os,ce`
         .result-item {
           cursor: pointer;
           text-decoration: none;
@@ -5468,7 +5467,7 @@ Mr({_template:Wr`
         .search {
           transition: all 0.4s ease-in-out;
         }
-      `]}};e([oe()],Wl.prototype,"docs",void 0),e([oe()],Wl.prototype,"search",void 0),e([oe()],Wl.prototype,"searchterm",void 0),Wl=e([ne("docs-search")],Wl);let Jl=class extends de{constructor(){super(...arguments),this.expanded=!1,this.tabs=!1}firstUpdated(e){const t=window.location.hash;window.innerWidth>800&&(this.expanded=!0),t.includes("#")&&(this.page=t.split("/")[1],this.category=t.replace("#","").split("/")[0]),super.firstUpdated(e),(()=>fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(e=>e.json()))().then(e=>{this.docs=e})}updated(){const e=document.querySelector("docs-main").shadowRoot,t=Array.from(e.querySelectorAll("paper-tab")),n=e.querySelector(".sidebarTopItems"),i=e.querySelector(".sidebarBottomItems");if(n&&!n.style.height){const e=i?window.getComputedStyle(i).getPropertyValue("height"):"0px";n.style.cssText=`height: calc((100% - 82px) - ${e});`}if(!(t.length<2)){for(const e of t)if(e.classList.contains("iron-selected"))return;t[1].click(),t[0].click(),window.dispatchEvent(new Event("resize")),this.tabs=this.docs[this.category].length>1}}changePage(e){this.page=e.detail.selected.toLowerCase(),window.history.pushState(null,"",`./#${this.category}/${this.page}`)}changeCategory(e){"paper-item"!==e.composedPath()[0].localName&&(this.category=e.composedPath()[3].innerText.toLowerCase(),this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}`),this.tabs=this.docs[this.category].length>1,window.dispatchEvent(new Event("resize")))}toggleSidebar(){this.expanded=!this.expanded}render(){return void 0===this.docs?P``:(void 0===this.category&&(this.category=Go,window.history.pushState(null,"",`./#${this.category}`)),void 0===this.page&&(this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}/${this.page}`)),P`
+      `]}};e([oe()],Wl.prototype,"docs",void 0),e([oe()],Wl.prototype,"search",void 0),e([oe()],Wl.prototype,"searchterm",void 0),Wl=e([ne("docs-search")],Wl);let Jl=class extends de{constructor(){super(...arguments),this.expanded=!1,this.tabs=!1}firstUpdated(e){const t=window.location.hash;window.innerWidth>800&&(this.expanded=!0),t.includes("#")&&(this.page=t.split("/")[1],this.category=t.replace("#","").split("/")[0]),super.firstUpdated(e),(()=>fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(e=>e.json()))().then(e=>{this.docs=e})}updated(){const e=document.querySelector("docs-main").shadowRoot,t=Array.from(e.querySelectorAll("paper-tab")),n=e.querySelector(".sidebarTopItems");if(n&&!n.style.height){const t=e.querySelector(".sidebarBottomItems"),i=t?window.getComputedStyle(t).getPropertyValue("height"):"0px";n.style.cssText=`height: calc((100% - 82px) - ${i});`}if(!(t.length<2)){for(const e of t)if(e.classList.contains("iron-selected"))return;t[1].click(),t[0].click(),this.tabCountAndResize()}}changePage(e){this.page=e.detail.selected.toLowerCase(),window.history.pushState(null,"",`./#${this.category}/${this.page}`)}changeCategory(e){"paper-item"!==e.composedPath()[0].localName&&(this.category=e.composedPath()[3].innerText.toLowerCase(),this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}`),this.tabCountAndResize())}tabCountAndResize(){this.tabs=this.docs[this.category].length>1,window.dispatchEvent(new Event("resize"))}toggleSidebar(){this.expanded=!this.expanded}render(){return void 0===this.docs?P``:(void 0===this.category&&(this.category=Go,window.history.pushState(null,"",`./#${this.category}`)),void 0===this.page&&(this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}/${this.page}`)),P`
       <app-header-layout has-scrolling-region fullbleed>
         <div class="sidebar ${this.expanded?"expanded":""}">
           <div class="menu" @click=${this.toggleSidebar}>
