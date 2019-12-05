@@ -5407,7 +5407,7 @@ Mr({_template:Wr`
               </div>
             </paper-card>
           `:""}
-    `}firstUpdated(){document.addEventListener("click",(e=>{if(!this.search)return;const t=e.path||e.composedPath&&e.composedPath();for(const e of t){if("DOCS-SEARCH"===e.nodeName)return;if("APP-TOOLBAR"===e.nodeName)break}this.search=!1}).bind(this))}updated(){this.search||(this.searchterm=""),this.search&&document.querySelector("docs-main").shadowRoot.querySelector("docs-search").shadowRoot.querySelector("input").focus()}toggleSearch(){this.search=!this.search}searchClick(e){window.open(e.composedPath()[0].href,"_self"),window.location.reload()}Search(e){this.searchterm=e.composedPath()[0].value}static get styles(){return[os,ce`
+    `}firstUpdated(){document.addEventListener("click",(e=>{if(!this.search)return;const t=e.path||e.composedPath&&e.composedPath(),n=["APP-HEADER-LAYOUT","APP-TOOLBAR","DOCS-CARD","APP-HEADER"];for(const e of t){if("DOCS-SEARCH"===e.nodeName)return;if(n.indexOf(e.nodeName)>-1)break}this.search=!1}).bind(this))}updated(){this.search||(this.searchterm=""),this.search&&document.querySelector("docs-main").shadowRoot.querySelector("docs-search").shadowRoot.querySelector("input").focus()}toggleSearch(){this.search=!this.search}searchClick(e){window.open(e.composedPath()[0].href,"_self"),window.location.reload()}Search(e){this.searchterm=e.composedPath()[0].value}static get styles(){return[os,ce`
         .result-item {
           cursor: pointer;
           text-decoration: none;
