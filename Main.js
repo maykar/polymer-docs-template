@@ -3054,11 +3054,11 @@ Mr({_template:Wr`
     margin-left: 55px;
     padding-top: 24px;
     background: var(--lovelace-background, var(--primary-background-color));
-    height: calc(100vh-96px);
+    height: calc(100vh - 96px);
   }
 
   .no-tabs {
-    height: calc(100vh-48px);
+    height: calc(100vh - 48px);
   }
 
   .content {
