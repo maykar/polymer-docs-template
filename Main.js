@@ -2848,7 +2848,7 @@ Mr({_template:Wr`
     height: 48.5px !important;
   }
 
-  app-toolbar .iconify {
+  app-toolbar .icon {
     width: 24px;
     height: 24px;
     z-index: 2;
@@ -2863,7 +2863,7 @@ Mr({_template:Wr`
   app-toolbar {
     background-color: var(--primary-color);
     font-weight: 400;
-    color: var(--text-primary-color);
+    color: var(--header-text-color);
   }
 
   app-header {
@@ -2872,8 +2872,12 @@ Mr({_template:Wr`
   }
 
   paper-tabs {
-    --paper-tabs-selection-bar-color: var(--primary-background-color);
+    --paper-tabs-selection-bar-color: var(--primary-background);
     text-transform: uppercase;
+  }
+
+  paper-tab {
+    font-family: var(--primary-font-family);
   }
 `,oa=ce`
   .sidebarTopItems {
@@ -2906,8 +2910,8 @@ Mr({_template:Wr`
     display: flex;
     white-space: nowrap;
     font-weight: 400;
-    color: var(--primary-text-color);
-    background-color: var(--primary-background-color);
+    color: var(--text-color);
+    background-color: var(--sidebar-secondary-background);
     font-size: 20px;
     align-items: center;
     border-bottom: 1px solid var(--divider-color);
@@ -2917,11 +2921,12 @@ Mr({_template:Wr`
     text-decoration: none !important;
   }
 
-  paper-listbox .iconify {
+  paper-listbox .icon {
     margin-left: -5px !important;
   }
 
   paper-item {
+    font-family: var(--primary-font-family);
     box-sizing: border-box;
     padding-left: 12px;
     cursor: pointer;
@@ -2929,18 +2934,18 @@ Mr({_template:Wr`
     width: 48px;
     margin: 4px 8px;
     border-radius: 4px;
-    color: var(--primary-text-color);
+    color: var(--text-color);
     white-space: nowrap;
   }
 
-  .sidebar .iconify {
+  .sidebar .icon {
     margin-right: 23px;
     margin-left: -5px;
     margin-top: -2px;
     width: 24px;
     height: 24px;
     min-width: 24px;
-    color: var(--sidebar-icon-color, var(--primary-text-color));
+    color: var(--sidebar-icon-color, var(--text-color));
   }
 
   .selected {
@@ -2979,7 +2984,7 @@ Mr({_template:Wr`
     top: 0;
     left: 0;
     margin: 0;
-    background-color: var(--paper-listbox-background-color);
+    background-color: var(--sidebar-background);
     border-right: 1px solid var(--divider-color);
     width: 55px;
     height: 100%;
@@ -2993,7 +2998,7 @@ Mr({_template:Wr`
   }
 
   .sidebarText {
-    color: var(--sidebar-text-color, var(--primary-text-color));
+    color: var(--sidebar-text-color, var(--text-color));
     padding-left: 3px;
     padding-bottom: -5px;
     text-align: left;
@@ -3020,7 +3025,7 @@ Mr({_template:Wr`
     width: 100%;
     bottom: 0;
     padding: 5px 0;
-    background: var(--primary-background-color);
+    background: var(--sidebar-secondary-background);
   }
 
   .footer a,
@@ -3037,7 +3042,7 @@ Mr({_template:Wr`
     margin-bottom: 24px;
     width: 100%;
     position: absolute;
-    background: var(--paper-listbox-background-color);
+    background: var(--sidebar-background);
   }
 
   .expanded {
@@ -3053,7 +3058,7 @@ Mr({_template:Wr`
     display: flex;
     margin-left: 55px;
     padding-top: 24px;
-    background: var(--lovelace-background, var(--primary-background-color));
+    background: var(--content-container-background);
     height: calc(100vh - 96px);
   }
 
@@ -4509,7 +4514,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         width: 100%;
         height: fit-content;
         border-radius: 3px;
-        background: #fff;
+        background: var(--card-background);
       }
     `}};e([oe()],Fc.prototype,"content",void 0),Fc=e([ne("docs-card")],Fc);
 /**
@@ -5394,7 +5399,7 @@ Mr({_template:Wr`
               <input @input=${this.Search} type="text" class="searchbox" autofocus />
             `:""}
       </div>
-      <iron-icon @click=${this.toggleSearch} class="iconify" icon="icons:search"></iron-icon>
+      <iron-icon @click=${this.toggleSearch} class="icon" icon="icons:search"></iron-icon>
       ${this.searchterm.length?P`
             <paper-card class="result-container">
               <div class="result">
@@ -5417,8 +5422,8 @@ Mr({_template:Wr`
           top: 43px;
           right: 27px;
           width: 278px;
-          background: var(--primary-background-color);
-          color: var(--primary-text-color);
+          background: var(--primary-background);
+          color: var(--text-color);
           z-index: 1337;
           border-radius: 20px;
           border: 1px solid var(--divider-color);
@@ -5433,7 +5438,7 @@ Mr({_template:Wr`
 
         .search {
           width: 200px;
-          background: var(--paper-listbox-background-color);
+          background: var(--search-results-background);
           z-index: 2;
           border-radius: 20px;
           margin-right: 8px;
@@ -5458,7 +5463,7 @@ Mr({_template:Wr`
           opacity: 1;
         }
 
-        .iconify {
+        .icon {
           min-width: 24px;
         }
 
@@ -5471,7 +5476,7 @@ Mr({_template:Wr`
         <div class="sidebar ${this.expanded?"expanded":""}">
           <div class="menu" @click=${this.toggleSidebar}>
             <paper-item>
-              <iron-icon class="iconify" icon="icons:menu"></iron-icon>
+              <iron-icon class="icon" icon="icons:menu"></iron-icon>
               <span>${"MENU"}</span>
             </paper-item>
           </div>
@@ -5483,7 +5488,7 @@ Mr({_template:Wr`
                   class="${this.category===e.category?"selected":""}"
                 >
                   <iron-icon
-                    class="iconify ${this.category===e.category?"selected":""}"
+                    class="icon ${this.category===e.category?"selected":""}"
                     icon=${e.icon}
                   ></iron-icon>
                   <span class="item-text">${e.category}</span>
@@ -5499,7 +5504,7 @@ Mr({_template:Wr`
                   class="${this.category===e.category?"selected":""}"
                 >
                   <iron-icon
-                    class="iconify ${this.category===e.category?"selected":""}"
+                    class="icon ${this.category===e.category?"selected":""}"
                     icon=${e.icon}
                   ></iron-icon>
                   <span class="item-text">${e.category}</span>
@@ -5509,7 +5514,7 @@ Mr({_template:Wr`
             ${ia.map(e=>P`
                 <a class="sidebarLinkItems" href="${e.link}" target="_blank">
                   <paper-item title=${e.caption}>
-                    <iron-icon class="iconify" icon=${e.icon||"icons:open-in-new"}></iron-icon>
+                    <iron-icon class="icon" icon=${e.icon||"icons:open-in-new"}></iron-icon>
                     <span class="item-text">${e.caption}</span>
                   </paper-item>
                 </a>
