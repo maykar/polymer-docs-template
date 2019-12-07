@@ -4492,9 +4492,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     vertical-align: middle;
   }
 `];Pc.registerLanguage("yaml",(function(e){var t={className:"string",relevance:0,variants:[{begin:/'/,end:/'/},{begin:/"/,end:/"/},{begin:/\S+/}],contains:[e.BACKSLASH_ESCAPE,{className:"template-variable",variants:[{begin:"{{",end:"}}"},{begin:"%{",end:"}"}]}]};return{case_insensitive:!0,aliases:["yml","YAML","yaml"],contains:[{className:"attr",variants:[{begin:"\\w[\\w :\\/.-]*:(?=[ \t]|$)"},{begin:'"\\w[\\w :\\/.-]*":(?=[ \t]|$)'},{begin:"'\\w[\\w :\\/.-]*':(?=[ \t]|$)"}]},{className:"meta",begin:"^---s*$",relevance:10},{className:"string",begin:"[\\|>]([0-9]?[+-])?[ ]*\\n( *)[\\S ]+\\n(\\2[\\S ]+\\n?)*"},{begin:"<%[%=-]?",end:"[%-]?%>",subLanguage:"ruby",excludeBegin:!0,excludeEnd:!0,relevance:0},{className:"type",begin:"!"+e.UNDERSCORE_IDENT_RE},{className:"type",begin:"!!"+e.UNDERSCORE_IDENT_RE},{className:"meta",begin:"&"+e.UNDERSCORE_IDENT_RE+"$"},{className:"meta",begin:"\\*"+e.UNDERSCORE_IDENT_RE+"$"},{className:"bullet",begin:"\\-(?=[ ]|$)",relevance:0},e.HASH_COMMENT_MODE,{beginKeywords:"true false yes no null",keywords:{literal:"true false yes no null"}},{className:"number",begin:e.C_NUMBER_RE+"\\b"},t]}}));const Bc=Pc,Dc=pa;Dc.setOptions({highlight:function(e,t){return t&&Bc.getLanguage(t)?Bc.highlight(t,e,!0).value:Bc.highlightAuto(e).value},breaks:!0,gfm:!0,tables:!0,langPrefix:""});class $c{static html(e,t={}){if(e.includes("---\n")){var n=e.split("---\n");e=n.slice(2).join("---\n")}return e=e.replace(/\:\w+:/g,e=>Vs.emojify(e)),P`
-      <style>
-        ${Rc} ${Vc}
-      </style>
+      <!-- prettier-ignore -->
+      <style>${Rc} ${Vc}</style>
       <div class="markdown-body">
         ${Ic(Ol(Dc(e,t)))}
       </div>
@@ -5510,7 +5509,7 @@ Mr({_template:Wr`
             ${ia.map(e=>P`
                 <a class="sidebarLinkItems" href="${e.link}" target="_blank">
                   <paper-item title=${e.caption}>
-                    <iron-icon class="iconify" icon="icons:open-in-new"></iron-icon>
+                    <iron-icon class="iconify" icon=${e.icon||"icons:open-in-new"}></iron-icon>
                     <span class="item-text">${e.caption}</span>
                   </paper-item>
                 </a>
