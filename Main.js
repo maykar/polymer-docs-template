@@ -5489,7 +5489,8 @@ Mr({_template:Wr`
                 >
                   <iron-icon
                     class="icon ${this.category===e.category?"selected":""}"
-                    icon=${e.icon}
+                    icon=${e.svc?"":e.icon||"icons:open-in-new"}
+                    src=${e.svc||""}
                   ></iron-icon>
                   <span class="item-text">${e.category}</span>
                 </paper-item>
@@ -5505,7 +5506,8 @@ Mr({_template:Wr`
                 >
                   <iron-icon
                     class="icon ${this.category===e.category?"selected":""}"
-                    icon=${e.icon}
+                    icon=${e.svc?"":e.icon||"icons:open-in-new"}
+                    src=${e.svc||""}
                   ></iron-icon>
                   <span class="item-text">${e.category}</span>
                 </paper-item>
@@ -5514,7 +5516,11 @@ Mr({_template:Wr`
             ${ia.map(e=>P`
                 <a class="sidebarLinkItems" href="${e.link}" target="_blank">
                   <paper-item title=${e.caption}>
-                    <iron-icon class="icon" icon=${e.icon||"icons:open-in-new"}></iron-icon>
+                    <iron-icon
+                      class="icon"
+                      icon=${e.svc?"":e.icon||"icons:open-in-new"}
+                      src=${e.svc||""}
+                    ></iron-icon>
                     <span class="item-text">${e.caption}</span>
                   </paper-item>
                 </a>
