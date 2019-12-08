@@ -5489,8 +5489,8 @@ Mr({_template:Wr`
                 >
                   <iron-icon
                     class="icon ${this.category===e.category?"selected":""}"
-                    icon=${e.svc?"":e.icon||"icons:open-in-new"}
-                    src=${e.svc||""}
+                    icon=${e.svg?"":e.icon||"icons:open-in-new"}
+                    src=${e.svg||""}
                   ></iron-icon>
                   <span class="item-text">${e.category}</span>
                 </paper-item>
@@ -5506,8 +5506,8 @@ Mr({_template:Wr`
                 >
                   <iron-icon
                     class="icon ${this.category===e.category?"selected":""}"
-                    icon=${e.svc?"":e.icon||"icons:open-in-new"}
-                    src=${e.svc||""}
+                    icon=${e.svg?"":e.icon||"icons:open-in-new"}
+                    src=${e.svg||""}
                   ></iron-icon>
                   <span class="item-text">${e.category}</span>
                 </paper-item>
@@ -5518,8 +5518,8 @@ Mr({_template:Wr`
                   <paper-item title=${e.caption}>
                     <iron-icon
                       class="icon"
-                      icon=${e.svc?"":e.icon||"icons:open-in-new"}
-                      src=${e.svc||""}
+                      icon=${e.svg?"":e.icon||"icons:open-in-new"}
+                      src=${e.svg||""}
                     ></iron-icon>
                     <span class="item-text">${e.caption}</span>
                   </paper-item>
