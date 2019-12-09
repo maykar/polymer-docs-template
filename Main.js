@@ -4240,6 +4240,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   .markdown-body table th {
     padding: 6px 13px;
     border: 1px solid var(--markdown--divider-color);
+    background: var(--markdown-secondary-background);
   }
 
   .markdown-body table tr {
