@@ -2842,6 +2842,7 @@ Mr({_template:Wr`
     transition-timing-function: linear;
     z-index: 1;
     width: stretch;
+    font-family: var(--primary-font-family);
   }
 
   app-toolbar {
@@ -3025,6 +3026,7 @@ Mr({_template:Wr`
     bottom: 0;
     padding: 5px 0;
     background: var(--sidebar-secondary-background);
+    font-family: var(--primary-font-family);
   }
 
   .footer a,
