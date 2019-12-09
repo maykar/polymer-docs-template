@@ -5471,6 +5471,11 @@ Mr({_template:Wr`
         .search {
           transition: all 0.4s ease-in-out;
         }
+
+        .search input {
+          background: var(--search-results-background);
+          color: var(--text-color);
+        }
       `]}};e([oe()],bh.prototype,"docs",void 0),e([oe()],bh.prototype,"search",void 0),e([oe()],bh.prototype,"searchterm",void 0),bh=e([ne("docs-search")],bh);let wh=class extends de{constructor(){super(...arguments),this.expanded=!1,this.tabs=!1}firstUpdated(e){const t=window.location.hash;window.innerWidth>800&&(this.expanded=!0),t.includes("#")&&(this.page=t.split("/")[1],this.category=t.replace("#","").split("/")[0]),super.firstUpdated(e),(()=>fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(e=>e.json()))().then(e=>{this.docs=e})}updated(){const e=document.querySelector("docs-main").shadowRoot,t=Array.from(e.querySelectorAll("paper-tab")),n=e.querySelector(".sidebarTopItems");if(n&&!n.style.height){const t=e.querySelector(".sidebarBottomItems"),i=t?window.getComputedStyle(t).getPropertyValue("height"):"0px";n.style.cssText=`height: calc((100% - 82px) - ${i});`}if(!(t.length<2)){for(const e of t)if(e.classList.contains("iron-selected"))return;t[1].click(),t[0].click(),this.tabCountAndResize()}}changePage(e){this.page=e.detail.selected.toLowerCase(),window.history.pushState(null,"",`./#${this.category}/${this.page}`)}changeCategory(e){"paper-item"!==e.composedPath()[0].localName&&(this.category=e.composedPath()[3].innerText.toLowerCase(),this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}`),this.tabCountAndResize())}tabCountAndResize(){this.tabs=this.docs[this.category].length>1,window.dispatchEvent(new Event("resize"))}toggleSidebar(){this.expanded=!this.expanded}render(){return void 0===this.docs?P``:(void 0===this.category&&(this.category=Go,window.history.pushState(null,"",`./#${this.category}`)),void 0===this.page&&(this.page=this.docs[this.category].sort((e,t)=>e.index>t.index?1:-1)[0].id,window.history.pushState(null,"",`./#${this.category}/${this.page}`)),P`
       <app-header-layout has-scrolling-region fullbleed>
         <div class="sidebar ${this.expanded?"expanded":""}">
