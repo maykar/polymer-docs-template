@@ -2833,7 +2833,7 @@ Mr({_template:Wr`
       }
     </style>
     <slot></slot>
-`,is:"paper-item",behaviors:[[No,bo,{hostAttributes:{role:"option",tabindex:"0"}}]]});var Qo="Documentation Demo Site",Go="intro",Xo="https://github.com/maykar/polymer-docs-template",ea="master",ta=[{category:"intro",icon:"icons:home"},{category:"installation",icon:"icons:arrow-downward"},{category:"configuration",icon:"icons:create"}],na=[{category:"faq",icon:"icons:help"}],ia=[{link:"https://github.com/maykar/polymer-docs-template",caption:"GitHub"},{link:"https://github.com/maykar/polymer-docs-template/issues",caption:"Issues"}];const ra=ce`
+`,is:"paper-item",behaviors:[[No,bo,{hostAttributes:{role:"option",tabindex:"0"}}]]});var Qo="Documentation Demo Site",Go="intro",Xo="https://github.com/maykar/polymer-docs-template",ea="master",ta=[{category:"intro",icon:"mdi:home"},{category:"installation",icon:"icons:arrow-downward"},{category:"configuration",icon:"icons:create"}],na=[{category:"faq",icon:"icons:help"}],ia=[{link:"https://github.com/maykar/polymer-docs-template",caption:"GitHub"},{link:"https://github.com/maykar/polymer-docs-template/issues",caption:"Issues"}];const ra=ce`
   app-header {
     position: fixed !important;
     top: 0;
