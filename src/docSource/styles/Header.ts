@@ -13,7 +13,7 @@ export const Header = css`
   }
 
   app-toolbar {
-    height: 48.5px !important;
+    height: 49px !important;
   }
 
   app-toolbar .icon {
@@ -32,6 +32,10 @@ export const Header = css`
     background-color: var(--primary-color);
     font-weight: 400;
     color: var(--header-text-color);
+  }
+
+  app-toolbar {
+    transform: initial !important;
   }
 
   app-header {
