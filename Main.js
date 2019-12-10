@@ -2846,7 +2846,7 @@ ZV({_template:YV`
   }
 
   app-toolbar {
-    height: 48.5px !important;
+    height: 49px !important;
   }
 
   app-toolbar .icon {
@@ -2865,6 +2865,10 @@ ZV({_template:YV`
     background-color: var(--primary-color);
     font-weight: 400;
     color: var(--header-text-color);
+  }
+
+  app-toolbar {
+    transform: initial !important;
   }
 
   app-header {
@@ -5056,7 +5060,7 @@ ZV({is:"paper-input",_template:YV`
 
       <!-- Need to bind maxlength so that the paper-input-char-counter works correctly -->
       <iron-input bind-value="{{value}}" slot="input" class="input-element" id$="[[_inputId]]" maxlength$="[[maxlength]]" allowed-pattern="[[allowedPattern]]" invalid="{{invalid}}" validator="[[validator]]">
-        <input aria-labelledby$="[[_ariaLabelledBy]]" aria-describedby$="[[_ariaDescribedBy]]" disabled$="[[disabled]]" title$="[[title]]" type$="[[type]]" pattern$="[[pattern]]" required$="[[required]]" autocomplete$="[[autocomplete]]" autofocus$="[[autofocus]]" inputmode$="[[inputmode]]" minlength$="[[minlength]]" maxlength$="[[maxlength]]" min$="[[min]]" max$="[[max]]" step$="[[step]]" name$="[[name]]" placeholder$="[[placeholder]]" readonly$="[[readonly]]" list$="[[list]]" size$="[[size]]" autocapitalize$="[[autocapitalize]]" autocorrect$="[[autocorrect]]" on-change="_onChange" tabindex$="[[tabIndex]]" autosave$="[[autosave]]" results$="[[results]]" accept$="[[accept]]" multiple$="[[multiple]]">
+        <input aria-labelledby$="[[_ariaLabelledBy]]" aria-describedby$="[[_ariaDescribedBy]]" disabled$="[[disabled]]" title$="[[title]]" type$="[[type]]" pattern$="[[pattern]]" required$="[[required]]" autocomplete$="[[autocomplete]]" autofocus$="[[autofocus]]" inputmode$="[[inputmode]]" minlength$="[[minlength]]" maxlength$="[[maxlength]]" min$="[[min]]" max$="[[max]]" step$="[[step]]" name$="[[name]]" placeholder$="[[placeholder]]" readonly$="[[readonly]]" list$="[[list]]" size$="[[size]]" autocapitalize$="[[autocapitalize]]" autocorrect$="[[autocorrect]]" on-change="_onChange" tabindex$="[[tabIndex]]" autosave$="[[autosave]]" results$="[[results]]" accept$="[[accept]]" multiple$="[[multiple]]" role$="[[inputRole]]" aria-haspopup$="[[inputAriaHaspopup]]">
       </iron-input>
 
       <slot name="suffix" slot="suffix"></slot>
@@ -5070,7 +5074,7 @@ ZV({is:"paper-input",_template:YV`
       </template>
 
     </paper-input-container>
-  `,behaviors:[[pa,Sa,Qr],Kr],properties:{value:{type:String}},get _focusableElement(){return this.inputElement._inputElement},listeners:{"iron-input-ready":"_onIronInputReady"},_onIronInputReady:function(){this.$.nativeInput||(this.$.nativeInput=this.$$("input")),this.inputElement&&-1!==this._typesThatHaveText.indexOf(this.$.nativeInput.type)&&(this.alwaysFloatLabel=!0),this.inputElement.bindValue&&this.$.container._handleValueAndAutoValidate(this.inputElement)}});
+  `,behaviors:[[pa,Sa,Qr],Kr],properties:{value:{type:String},inputRole:{type:String,value:void 0},inputAriaHaspopup:{type:String,value:void 0}},get _focusableElement(){return this.inputElement._inputElement},listeners:{"iron-input-ready":"_onIronInputReady"},_onIronInputReady:function(){this.$.nativeInput||(this.$.nativeInput=this.$$("input")),this.inputElement&&-1!==this._typesThatHaveText.indexOf(this.$.nativeInput.type)&&(this.alwaysFloatLabel=!0),this.inputElement.bindValue&&this.$.container._handleValueAndAutoValidate(this.inputElement)}});
 /**
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
@@ -5448,6 +5452,7 @@ ZV({_template:YV`
           height: 25px;
           opacity: 1;
           overflow: hidden;
+          padding-bottom: 6px;
         }
 
         .collapse {
@@ -5539,7 +5544,7 @@ ZV({_template:YV`
         </div>
 
         <app-header class="${this.expanded?"sidebarExpanded":""}" fixed slot="header">
-          <app-toolbar>
+          <app-toolbar scroll="false">
             <div main-title class="main-title">${Wa}</div>
             <docs-search .docs=${this.docs}></docs-search>
             <docs-dot-menu .category=${this.category} .page=${this.page}></docs-dot-menu>
