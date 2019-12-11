@@ -2,7 +2,6 @@ import { html, TemplateResult } from 'lit-element';
 import marked_ from 'marked';
 import emoji from 'node-emoji';
 
-import { filterXSS } from 'xss';
 //@ts-ignore
 import YAML from 'yaml';
 import hljs_ from 'highlight.js/lib/highlight';
@@ -58,7 +57,7 @@ export class markdown {
       <!-- prettier-ignore -->
       <style>${GFM} ${HLJS}</style>
       <div class="markdown-body">
-        ${unsafeHTML(filterXSS(marked(input, options)))}
+        ${unsafeHTML(marked(input, options))}
       </div>
     `;
   }
