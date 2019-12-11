@@ -8,6 +8,7 @@ index: 1
 Each folder inside the docs directory is a category in the sidebar and each MD file inside those folders is a selection in the header.
 
 **Example using this sites structure:**
+
 ```txt
 docs/
 │

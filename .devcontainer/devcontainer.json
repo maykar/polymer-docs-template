@@ -3,7 +3,9 @@
   "name": "polymer-docs-template",
   "image": "ludeeus/devcontainer:frontend-stable",
   "context": "..",
-  "appPort": ["5000:5000"],
+  "appPort": [
+    "5000:5000"
+  ],
   "postCreateCommand": "yarn install; bash script/fixNestings.sh",
   "runArgs": [
     "-v",
@@ -25,6 +27,11 @@
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "markdownlint.config": {
+      "MD025": {
+        "front_matter_title": ""
+      }
+    }
   }
 }
