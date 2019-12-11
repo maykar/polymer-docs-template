@@ -23,7 +23,7 @@ You can use icons from [Iron Icons](https://www.webcomponents.org/element/@polym
 
 **This sites siteSettings.js file:**
 
-```txt
+```js
 module.exports = {
   siteName: 'Documentation Demo Site',
   siteDescription: '',
