@@ -12,7 +12,6 @@ const OUTPUT_DIR = path.resolve(__dirname, '../src/docSource');
 const MDI_OUTPUT_PATH = path.resolve(OUTPUT_DIR, 'mdi.js');
 
 const mdi = JSON.parse(fs.readFileSync(path.resolve(ICON_PACKAGE_PATH, PACK_PATH), 'UTF-8'));
-const mdiVersion = mdi.version;
 const mdiInstalled = fs
   .readFileSync(path.resolve(MDI_OUTPUT_PATH), 'UTF-8')
   .split('\n')[0]
@@ -48,16 +47,15 @@ function generateIconset(iconsetName, iconNames) {
 }
 
 gulp.task('gen-icons-mdi', done => {
-  if (mdiVersion === mdiInstalled) done();
+  if (mdi.version === mdiInstalled) done();
   const meta = JSON.parse(fs.readFileSync(path.resolve(ICON_PACKAGE_PATH, META_PATH), 'UTF-8'));
-  const package = JSON.parse(fs.readFileSync(path.resolve(ICON_PACKAGE_PATH, PACK_PATH), 'UTF-8'));
   const iconNames = meta.map(iconInfo => iconInfo.name);
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR);
   }
   fs.writeFileSync(
     MDI_OUTPUT_PATH,
-    `//${package.version}\n/* eslint-disable */\nexport const mdiIconSet = '${generateIconset('mdi', iconNames)}';`,
+    `//${mdi.version}\n/* eslint-disable */\nexport const mdiIconSet = '${generateIconset('mdi', iconNames)}';`,
   );
   done();
 });
