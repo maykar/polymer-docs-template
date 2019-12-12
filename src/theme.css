@@ -40,6 +40,7 @@
     --markdown-font-family: var(--primary-font-family);
     --markdown-primary-color: var(--primary-color);
     --markdown-text-color: var(--text-color);
+    --markdown-heading-color: var(--text-color);
     --markdown-link-color: var(--primary-color);
     --markdown-divider-color: var(--divider-color);
     --markdown-primary-background: var(--primary-background);

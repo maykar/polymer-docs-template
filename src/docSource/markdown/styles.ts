@@ -427,6 +427,7 @@ const GFM2 = css`
   .markdown-body h6 {
     margin-top: 0;
     margin-bottom: 0;
+    color: var(--markdown-heading-color);
   }
 
   .markdown-body h1 {
