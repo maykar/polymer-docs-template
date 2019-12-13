@@ -11,6 +11,7 @@ module.exports = {
   siteURL: 'https://maykar.github.io/polymer-docs-template',
   github: 'https://github.com/maykar/polymer-docs-template',
   branch: 'master',
+  highlightStyle: '',
   sideBar: [
     {
       category: 'intro',
