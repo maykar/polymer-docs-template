@@ -11,7 +11,7 @@ module.exports = {
   siteURL: 'https://maykar.github.io/polymer-docs-template',
   github: 'https://github.com/maykar/polymer-docs-template',
   branch: 'master',
-  highlightStyle: '',
+  highlightStyle: '', // https://highlightjs.org/static/demo/
   sideBar: [
     {
       category: 'intro',
