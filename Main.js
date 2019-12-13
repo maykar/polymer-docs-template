@@ -3054,8 +3054,7 @@ ZV({_template:YV`
     width: 254px !important;
   }
 
-  .sidebar,
-  .view {
+  .sidebar {
     transition: all 0.4s ease-in-out;
   }
 
@@ -3066,6 +3065,7 @@ ZV({_template:YV`
     background: var(--content-container-background);
     height: calc(100vh - 96px);
     min-height: fit-content;
+    transition: margin-left 0.4s ease-in-out;
   }
 
   .no-tabs {
