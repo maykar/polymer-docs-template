@@ -3035,7 +3035,7 @@ ZV({_template:YV`
 
   .footer a,
   i {
-    color: var(--secondary-text-color);
+    color: #939393;
     text-decoration: none;
     margin-left: 16px;
     opacity: 1;
@@ -3947,6 +3947,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   .markdown-body pre {
     margin-top: 0;
     margin-bottom: 0;
+    background: var(--markdown-pre-background) !important;
   }
 
   .markdown-body input::-webkit-inner-spin-button,
@@ -4275,7 +4276,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     padding: 0.2em 0.4em;
     margin: 0;
     font-size: 85%;
-    background-color: rgba(27, 31, 35, 0.05);
+    background-color: var(--markdown-code-background);
     border-radius: 3px;
   }
 
@@ -4507,6 +4508,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 `];Ro.registerLanguage("yaml",(function(t){var e={className:"string",relevance:0,variants:[{begin:/'/,end:/'/},{begin:/"/,end:/"/},{begin:/\S+/}],contains:[t.BACKSLASH_ESCAPE,{className:"template-variable",variants:[{begin:"{{",end:"}}"},{begin:"%{",end:"}"}]}]};return{case_insensitive:!0,aliases:["yml","YAML","yaml"],contains:[{className:"attr",variants:[{begin:"\\w[\\w :\\/.-]*:(?=[ \t]|$)"},{begin:'"\\w[\\w :\\/.-]*":(?=[ \t]|$)'},{begin:"'\\w[\\w :\\/.-]*':(?=[ \t]|$)"}]},{className:"meta",begin:"^---s*$",relevance:10},{className:"string",begin:"[\\|>]([0-9]?[+-])?[ ]*\\n( *)[\\S ]+\\n(\\2[\\S ]+\\n?)*"},{begin:"<%[%=-]?",end:"[%-]?%>",subLanguage:"ruby",excludeBegin:!0,excludeEnd:!0,relevance:0},{className:"type",begin:"!"+t.UNDERSCORE_IDENT_RE},{className:"type",begin:"!!"+t.UNDERSCORE_IDENT_RE},{className:"meta",begin:"&"+t.UNDERSCORE_IDENT_RE+"$"},{className:"meta",begin:"\\*"+t.UNDERSCORE_IDENT_RE+"$"},{className:"bullet",begin:"\\-(?=[ ]|$)",relevance:0},t.HASH_COMMENT_MODE,{beginKeywords:"true false yes no null",keywords:{literal:"true false yes no null"}},{className:"number",begin:t.C_NUMBER_RE+"\\b"},e]}}));const jo=Ro,qo=LC;qo.setOptions({highlight:function(t,e){return e&&jo.getLanguage(e)?jo.highlight(e,t,!0).value:jo.highlightAuto(t).value},breaks:!0,gfm:!0,tables:!0,langPrefix:""});class Uo{static html(t,e={}){if(t.includes("---\n")){var i=t.split("---\n");t=i.slice(2).join("---\n")}return t=t.replace(/\:\w+:/g,t=>Pn.emojify(t)),O`
       <!-- prettier-ignore -->
       <style>${Fo} ${$o}</style>
+      ${""}
       <div class="markdown-body">
         ${Do(qo(t,e))}
       </div>

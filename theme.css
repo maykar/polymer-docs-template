@@ -45,4 +45,6 @@
     --markdown-divider-color: var(--divider-color);
     --markdown-primary-background: var(--primary-background);
     --markdown-secondary-background: var(--secondary-background);
+    --markdown-pre-background: var(--secondary-background);
+    --markdown-code-background: var(--primary-background);
 }
