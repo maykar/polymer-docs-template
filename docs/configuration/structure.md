@@ -9,7 +9,7 @@ Each folder inside the docs directory is a category in the sidebar and each MD f
 
 **Example using this sites structure:**
 
-```ascii
+```txt
 docs/
 │
 ├── configuration/          <-- Sidebar category
