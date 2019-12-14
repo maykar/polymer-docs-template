@@ -3442,107 +3442,7 @@ ZV({_template:YV`
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const Bo=new WeakMap,Do=(t=>(...i)=>{const H=t(...i);return e.set(H,!0),H})(t=>e=>{if(!(e instanceof _))throw new Error("unsafeHTML can only be used in text bindings");const i=Bo.get(e);if(void 0!==i&&c(t)&&t===i.value&&e.value===i.fragment)return;const H=document.createElement("template");H.innerHTML=t;const V=document.importNode(H.content,!0);e.setValue(V),Bo.set(e,{value:t,fragment:V})}),$o=rt`
-  /*
-
-github.com style (c) Vasily Polovnyov <vast@whiteants.net>
-
-*/
-
-  .hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    color: #333;
-    background: #f8f8f8;
-  }
-
-  .hljs-comment,
-  .hljs-quote {
-    color: #998;
-    font-style: italic;
-  }
-
-  .hljs-keyword,
-  .hljs-selector-tag,
-  .hljs-subst {
-    color: #333;
-    font-weight: bold;
-  }
-
-  .hljs-number,
-  .hljs-literal,
-  .hljs-variable,
-  .hljs-template-variable,
-  .hljs-tag .hljs-attr {
-    color: #008080;
-  }
-
-  .hljs-string,
-  .hljs-doctag {
-    color: #d14;
-  }
-
-  .hljs-title,
-  .hljs-section,
-  .hljs-selector-id {
-    color: #900;
-    font-weight: bold;
-  }
-
-  .hljs-subst {
-    font-weight: normal;
-  }
-
-  .hljs-type,
-  .hljs-class .hljs-title {
-    color: #458;
-    font-weight: bold;
-  }
-
-  .hljs-tag,
-  .hljs-name,
-  .hljs-attribute {
-    color: #000080;
-    font-weight: normal;
-  }
-
-  .hljs-regexp,
-  .hljs-link {
-    color: #009926;
-  }
-
-  .hljs-symbol,
-  .hljs-bullet {
-    color: #990073;
-  }
-
-  .hljs-built_in,
-  .hljs-builtin-name {
-    color: #0086b3;
-  }
-
-  .hljs-meta {
-    color: #999;
-    font-weight: bold;
-  }
-
-  .hljs-deletion {
-    background: #fdd;
-  }
-
-  .hljs-addition {
-    background: #dfd;
-  }
-
-  .hljs-emphasis {
-    font-style: italic;
-  }
-
-  .hljs-strong {
-    font-weight: bold;
-  }
-`,Fo=[rt`
+const Bo=new WeakMap,Do=(t=>(...i)=>{const H=t(...i);return e.set(H,!0),H})(t=>e=>{if(!(e instanceof _))throw new Error("unsafeHTML can only be used in text bindings");const i=Bo.get(e);if(void 0!==i&&c(t)&&t===i.value&&e.value===i.fragment)return;const H=document.createElement("template");H.innerHTML=t;const V=document.importNode(H.content,!0);e.setValue(V),Bo.set(e,{value:t,fragment:V})}),$o=[rt`
   @font-face {
     font-family: octicons-link;
     src: url(data:font/woff;charset=utf-8;base64,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)
@@ -4505,10 +4405,109 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     margin: 0 0.2em 0.25em -1.6em;
     vertical-align: middle;
   }
-`];Ro.registerLanguage("yaml",(function(t){var e={className:"string",relevance:0,variants:[{begin:/'/,end:/'/},{begin:/"/,end:/"/},{begin:/\S+/}],contains:[t.BACKSLASH_ESCAPE,{className:"template-variable",variants:[{begin:"{{",end:"}}"},{begin:"%{",end:"}"}]}]};return{case_insensitive:!0,aliases:["yml","YAML","yaml"],contains:[{className:"attr",variants:[{begin:"\\w[\\w :\\/.-]*:(?=[ \t]|$)"},{begin:'"\\w[\\w :\\/.-]*":(?=[ \t]|$)'},{begin:"'\\w[\\w :\\/.-]*':(?=[ \t]|$)"}]},{className:"meta",begin:"^---s*$",relevance:10},{className:"string",begin:"[\\|>]([0-9]?[+-])?[ ]*\\n( *)[\\S ]+\\n(\\2[\\S ]+\\n?)*"},{begin:"<%[%=-]?",end:"[%-]?%>",subLanguage:"ruby",excludeBegin:!0,excludeEnd:!0,relevance:0},{className:"type",begin:"!"+t.UNDERSCORE_IDENT_RE},{className:"type",begin:"!!"+t.UNDERSCORE_IDENT_RE},{className:"meta",begin:"&"+t.UNDERSCORE_IDENT_RE+"$"},{className:"meta",begin:"\\*"+t.UNDERSCORE_IDENT_RE+"$"},{className:"bullet",begin:"\\-(?=[ ]|$)",relevance:0},t.HASH_COMMENT_MODE,{beginKeywords:"true false yes no null",keywords:{literal:"true false yes no null"}},{className:"number",begin:t.C_NUMBER_RE+"\\b"},e]}}));const jo=Ro,qo=LC;qo.setOptions({highlight:function(t,e){return e&&jo.getLanguage(e)?jo.highlight(e,t,!0).value:jo.highlightAuto(t).value},breaks:!0,gfm:!0,tables:!0,langPrefix:""});class Uo{static html(t,e={}){if(t.includes("---\n")){var i=t.split("---\n");t=i.slice(2).join("---\n")}return t=t.replace(/\:\w+:/g,t=>Pn.emojify(t)),O`
+`],Fo=rt`
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+`;Ro.registerLanguage("yaml",(function(t){var e={className:"string",relevance:0,variants:[{begin:/'/,end:/'/},{begin:/"/,end:/"/},{begin:/\S+/}],contains:[t.BACKSLASH_ESCAPE,{className:"template-variable",variants:[{begin:"{{",end:"}}"},{begin:"%{",end:"}"}]}]};return{case_insensitive:!0,aliases:["yml","YAML","yaml"],contains:[{className:"attr",variants:[{begin:"\\w[\\w :\\/.-]*:(?=[ \t]|$)"},{begin:'"\\w[\\w :\\/.-]*":(?=[ \t]|$)'},{begin:"'\\w[\\w :\\/.-]*':(?=[ \t]|$)"}]},{className:"meta",begin:"^---s*$",relevance:10},{className:"string",begin:"[\\|>]([0-9]?[+-])?[ ]*\\n( *)[\\S ]+\\n(\\2[\\S ]+\\n?)*"},{begin:"<%[%=-]?",end:"[%-]?%>",subLanguage:"ruby",excludeBegin:!0,excludeEnd:!0,relevance:0},{className:"type",begin:"!"+t.UNDERSCORE_IDENT_RE},{className:"type",begin:"!!"+t.UNDERSCORE_IDENT_RE},{className:"meta",begin:"&"+t.UNDERSCORE_IDENT_RE+"$"},{className:"meta",begin:"\\*"+t.UNDERSCORE_IDENT_RE+"$"},{className:"bullet",begin:"\\-(?=[ ]|$)",relevance:0},t.HASH_COMMENT_MODE,{beginKeywords:"true false yes no null",keywords:{literal:"true false yes no null"}},{className:"number",begin:t.C_NUMBER_RE+"\\b"},e]}}));const jo=Ro,qo=LC;qo.setOptions({highlight:function(t,e){return e&&jo.getLanguage(e)?jo.highlight(e,t,!0).value:jo.highlightAuto(t).value},breaks:!0,gfm:!0,tables:!0,langPrefix:""});class Uo{static html(t,e={}){if(t.includes("---\n")){var i=t.split("---\n");t=i.slice(2).join("---\n")}return t=t.replace(/\:\w+:/g,t=>Pn.emojify(t)),O`
       <!-- prettier-ignore -->
-      <style>${Fo} ${$o}</style>
-      ${""}
+      <style>${$o} ${Fo}</style>
       <div class="markdown-body">
         ${Do(qo(t,e))}
       </div>
