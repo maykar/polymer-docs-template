@@ -7,6 +7,10 @@ import YAML from 'yaml';
 import hljs_ from 'highlight.js/lib/highlight';
 
 import yaml_ from 'highlight.js/lib/languages/yaml';
+import css_ from 'highlight.js/lib/languages/css';
+import js_ from 'highlight.js/lib/languages/javascript';
+import md_ from 'highlight.js/lib/languages/markdown';
+import jinja_ from 'highlight.js/lib/languages/django';
 
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
@@ -14,6 +18,13 @@ import { GFM } from './styles';
 import { HLJS } from '../HLJSstyle.js';
 
 hljs_.registerLanguage('yaml', yaml_);
+hljs_.registerLanguage('css', css_);
+hljs_.registerLanguage('js', js_);
+hljs_.registerLanguage('javascript', js_);
+hljs_.registerLanguage('md', md_);
+hljs_.registerLanguage('markdown', md_);
+hljs_.registerLanguage('jinja', jinja_);
+hljs_.registerLanguage('django', jinja_);
 
 const hljs = hljs_,
   marked = marked_;
