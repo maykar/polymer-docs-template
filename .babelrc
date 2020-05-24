@@ -1,0 +1,15 @@
+{
+  "exclude": "node_modules/**",
+  "ignore": ["src/docSource/mdi.js"],
+  "sourceMaps": false,
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [">2%", "Edge > 14", "Firefox > 63", "Chrome > 67", "Safari > 10"]
+        }
+      }
+    ]
+  ]
+}

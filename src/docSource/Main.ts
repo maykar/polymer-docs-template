@@ -19,7 +19,7 @@ import './DotMenu';
 import './Search';
 
 const fetchDocs = (): Promise<[]> =>
-  fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then(r => r.json());
+  fetch(`${window.location.origin}${window.location.pathname}jsonfeed.json`).then((r) => r.json());
 
 @customElement('docs-main')
 export class Main extends LitElement {
@@ -37,12 +37,14 @@ export class Main extends LitElement {
       this.category = hash.replace('#', '').split('/')[0];
     }
     super.firstUpdated(changedProps);
-    fetchDocs().then(docs => {
+    fetchDocs().then((docs) => {
       this.docs = docs;
     });
     const mdiTemplate = document.createElement('template');
     mdiTemplate.innerHTML = mdiIconSet;
     document.head.appendChild(mdiTemplate.content);
+    const locationHashChanged = () => location.reload();
+    window.onhashchange = locationHashChanged;
   }
 
   updated(): void {
@@ -53,6 +55,12 @@ export class Main extends LitElement {
       const bottomItems = main!.querySelector('.sidebarBottomItems');
       const space = bottomItems ? window.getComputedStyle(bottomItems).getPropertyValue('height') : '0px';
       topItems.style.cssText = `height: calc((100% - 82px) - ${space});`;
+    }
+    if (main!.querySelector('app-header-layout')) {
+      const contentContainer = main!
+        .querySelector('app-header-layout')!
+        .shadowRoot!.querySelector('#contentContainer') as HTMLElement;
+      if (!contentContainer!.style.overflowY) contentContainer!.style.cssText = 'overflow-y: initial;';
     }
     if (tabs.length < 2) return;
     for (const tab of tabs) if (tab.classList.contains('iron-selected')) return;
@@ -69,6 +77,7 @@ export class Main extends LitElement {
   changeCategory(e: any) {
     if (e.composedPath()[0].localName !== 'paper-item') {
       this.category = e.composedPath()[3].innerText.toLowerCase();
+      this.category = this.category!.trim();
       this.page = this.docs[this.category!].sort((a, b) => (a.index > b.index ? 1 : -1))[0].id;
       window.history.pushState(null, '', `./#${this.category}`);
       this.tabCountAndResize();
@@ -104,7 +113,7 @@ export class Main extends LitElement {
             </paper-item>
           </div>
           <div class="sidebarTopItems">
-            ${settings.sideBar.map(element => {
+            ${settings.sideBar.map((element) => {
               return html`
                 <paper-item
                   @click=${this.changeCategory}
@@ -122,7 +131,7 @@ export class Main extends LitElement {
           </div>
 
           <div class="sidebarBottomItems">
-            ${settings.sideBarBottom.map(element => {
+            ${settings.sideBarBottom.map((element) => {
               return html`
                 <paper-item
                   @click=${this.changeCategory}
@@ -138,7 +147,7 @@ export class Main extends LitElement {
               `;
             })}
             <div class="divider"></div>
-            ${settings.sideBarLinks.map(element => {
+            ${settings.sideBarLinks.map((element) => {
               return html`
                 <a class="sidebarLinkItems" href="${element.link}" target="_blank">
                   <paper-item title=${element.caption}>
@@ -176,10 +185,8 @@ export class Main extends LitElement {
               ? html`
                   ${this.docs[this.category!]
                     .sort((a, b) => (a.index > b.index ? 1 : -1))
-                    .map(element => {
-                      return html`
-                        <paper-tab page-name="${element.id}">${element.title}</paper-tab>
-                      `;
+                    .map((element) => {
+                      return html` <paper-tab page-name="${element.id}">${element.title}</paper-tab> `;
                     })}
                 `
               : ''}
@@ -187,11 +194,8 @@ export class Main extends LitElement {
         </app-header>
         <div class="view ${this.expanded ? 'sidebarExpanded' : ''} ${this.tabs ? '' : 'no-tabs'}">
           <div class="content">
-            ${this.docs[this.category!].map(element => {
-              if (element.id === this.page)
-                return html`
-                  <docs-card .content=${element}> </docs-card>
-                `;
+            ${this.docs[this.category!].map((element) => {
+              if (element.id === this.page) return html` <docs-card .content=${element}> </docs-card> `;
               else return;
             })}
           </div>
