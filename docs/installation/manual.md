@@ -5,6 +5,6 @@ index: 1
 
 ```yaml
 resources:
-  - url: /local/blahblahblah.js
+  - url: /local/WIP.js
     type: script
 ```
