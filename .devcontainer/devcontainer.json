@@ -1,7 +1,7 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
   "name": "polymer-docs-template",
-  "image": "ludeeus/devcontainer:frontend-stable",
+  "image": "ludeeus/container:frontend",
   "context": "..",
   "appPort": [
     "5000:5000"
